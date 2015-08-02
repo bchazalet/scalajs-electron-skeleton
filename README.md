@@ -8,7 +8,7 @@ Get started, enter the scalajs subfolder, start sbt and launch the fastOptJS tas
 ``` bash
 cd scalajs
 sbt
-sbt> ~fastOptJS
+sbt> ~electronMain
 ```
 
 Then you will need to get Electron [downloaded](https://github.com/atom/electron/releases)  on your machine.
@@ -26,3 +26,11 @@ You should see a new window opening with the following text:
 >We are using io.js v2.3.1 and Electron 0.29.1.
 >
 >Hello World from Scala.js
+
+## Main process
+Sbt task `electronMain` aggregates the content of `fastOptJS` and of the launcher to form the `main.js` file that will be provided to Electron's main process. This is why the repo does not contain a `main.js` under the `electron-app` folder (unlike electron's quick start example): it is generated from the Scala.js code.
+
+Electron's [main process]((http://electron.atom.io/docs/latest/tutorial/quick-start/)) is implemented by `com.example.electronapp.Main.scala`. It extends `js.App` and that's what the generated Scala.js launcher launches. You should not extend `js.App` elsewhere in your code or that will generate a conflict: instead use `JSExport`.
+
+## Renderer process
+The javascript code loaded from within the rendered process (i.e. `index.html`) is implemented in `com.example.electronapp.Renderer.scala` and uses the `JSExport` annotation to be callable from javascript and its main method is explicitly called from within `index.html`.

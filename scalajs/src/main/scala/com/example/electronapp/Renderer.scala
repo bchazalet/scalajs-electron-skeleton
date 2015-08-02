@@ -3,11 +3,14 @@ package com.example.electronapp
 import scala.scalajs.js
 import org.scalajs.jquery.jQuery
 import js.Dynamic.{global => g}
+import js.annotation.JSExport
 
-object ElectronApp extends js.JSApp {
+@JSExport
+object Renderer {
 
   val fs = g.require("fs")
 
+  @JSExport
   def main(): Unit = {
     jQuery("body").append("<p>Hello World from Scala.js</p>")
     val filenames = listFiles(".")
