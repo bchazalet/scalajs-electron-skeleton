@@ -32,5 +32,7 @@ Sbt task `electronMain` aggregates the content of `fastOptJS` and of the launche
 
 Electron's [main process]((http://electron.atom.io/docs/latest/tutorial/quick-start/)) is implemented by `com.example.electronapp.Main.scala`. It extends `js.App` and that's what the generated Scala.js launcher launches. You should not extend `js.App` elsewhere in your code or that will generate a conflict: instead use `JSExport`.
 
+If for some reason, you don't want the `main.js` to come from Scala.js, see the [simple-main-js](https://github.com/bchazalet/scalajs-electron-skeleton/tree/simple-main-js) branch where the main file is exactly the one from Electron's quick start example, written in pure javascript.
+
 ## Renderer process
 The javascript code loaded from within the rendered process (i.e. `index.html`) is implemented in `com.example.electronapp.Renderer.scala` and uses the `JSExport` annotation to be callable from javascript and its main method is explicitly called from within `index.html`.
