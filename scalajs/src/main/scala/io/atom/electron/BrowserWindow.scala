@@ -7,7 +7,7 @@ import js.Dynamic.{global => g}
 /**
  * See http://electron.atom.io/docs/v0.30.0/api/browser-window/
  */
-class BrowserWindow extends js.Object with EventEmitter {
+trait BrowserWindow extends js.Object with EventEmitter {
 
   def webContents(): js.Dynamic = js.native
 
