@@ -7,9 +7,7 @@ import js.Dynamic.{global => g}
 /**
  * See http://electron.atom.io/docs/v0.30.0/api/browser-window/
  */
-class BrowserWindow extends js.Object {
-
-  def on(event: String, listener: js.Function0[Unit]): BrowserWindow = js.native
+class BrowserWindow extends js.Object with EventEmitter {
 
   def webContents(): js.Dynamic = js.native
 
