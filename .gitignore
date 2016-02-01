@@ -1,2 +1,3 @@
 .DS_Store
-electron-app/main.js
+/electron-app/main.js
+/scalajs/target
