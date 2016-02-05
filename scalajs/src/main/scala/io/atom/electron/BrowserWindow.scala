@@ -119,7 +119,10 @@ trait BrowserWindow extends js.Object with EventEmitter {
   // BrowserWindow.printToPDF(options, callback)
 
   // TODO def BrowserWindow.loadUrl(url, [options])
+  @deprecated
   def loadUrl(url: String): Unit = js.native
+
+  def loadURL(url: String): Unit = js.native
 
   def reload(): Unit = js.native
 
