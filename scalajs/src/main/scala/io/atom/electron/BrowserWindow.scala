@@ -127,7 +127,9 @@ trait BrowserWindow extends js.Object with EventEmitter {
   def reload(): Unit = js.native
 
   // TODO BrowserWindow.setMenu(menu)
-  // TODO BrowserWindow.setProgressBar(progress)
+
+  def setProgressBar(progress: Double): Unit = js.native
+
   // BrowserWindow.setOverlayIcon(overlay, description)
   // BrowserWindow.showDefinitionForSelection()
 
