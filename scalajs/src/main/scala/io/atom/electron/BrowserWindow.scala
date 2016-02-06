@@ -7,6 +7,7 @@ import js.Dynamic.{global => g}
 /**
  * See http://electron.atom.io/docs/v0.30.0/api/browser-window/
  */
+@js.native
 trait BrowserWindow extends js.Object with EventEmitter {
 
   def webContents(): js.Dynamic = js.native
@@ -119,16 +120,21 @@ trait BrowserWindow extends js.Object with EventEmitter {
   // BrowserWindow.printToPDF(options, callback)
 
   // TODO def BrowserWindow.loadUrl(url, [options])
-  def loadUrl(url: String): Unit = js.native
+
+  def loadURL(url: String): Unit = js.native
 
   def reload(): Unit = js.native
 
   // TODO BrowserWindow.setMenu(menu)
-  // TODO BrowserWindow.setProgressBar(progress)
+
+  def setProgressBar(progress: Double): Unit = js.native
+
   // BrowserWindow.setOverlayIcon(overlay, description)
   // BrowserWindow.showDefinitionForSelection()
 
   def setAutoHideMenuBar(hide: Boolean): Unit = js.native
+
+  def send(channel: String, arg: js.Dynamic*): Unit = js.native
 
   def isMenuBarAutoHide(): Boolean = js.native
 
@@ -146,9 +152,9 @@ object BrowserWindow {
 
   val browserWindow = g.require("browser-window").asInstanceOf[js.Dynamic]
 
-  def apply(width: Int = 800, height: Int = 600, show: Boolean = true): BrowserWindow = {
+  def apply(width: Int = 800, height: Int = 600, show: Boolean = true, icon: String = null): BrowserWindow = {
     js.Dynamic.newInstance(browserWindow)(
-      js.Dynamic.literal(width = width, height = height, show = show)
+      js.Dynamic.literal(width = width, height = height, show = show, icon = icon)
     ).asInstanceOf[BrowserWindow]
   }
 

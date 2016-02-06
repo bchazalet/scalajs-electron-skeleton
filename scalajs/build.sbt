@@ -6,10 +6,13 @@ name := "Scala.js Electron Skeleton"
 
 scalaVersion := "2.11.7"
 
-libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.8.1"
+libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.8.2"
 libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.8.0"
 
 jsDependencies += RuntimeDOM
+
+scalacOptions += "-deprecation"
+scalacOptions += "-feature"
 
 skip in packageJSDependencies := false
 
