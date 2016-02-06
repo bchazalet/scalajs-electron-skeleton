@@ -34,7 +34,7 @@ object Main extends js.JSApp {
       mainWindow = BrowserWindow(width = 800, height = 600)
 
       // and load the index.html of the app.
-      mainWindow.loadUrl("file://" + g.__dirname + "/index.html")
+      mainWindow.loadURL("file://" + g.__dirname + "/index.html")
 
       // Open the devtools.
       mainWindow.openDevTools()

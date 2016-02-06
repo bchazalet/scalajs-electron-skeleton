@@ -120,7 +120,7 @@ trait BrowserWindow extends js.Object with EventEmitter {
   // BrowserWindow.printToPDF(options, callback)
 
   // TODO def BrowserWindow.loadUrl(url, [options])
-  @deprecated
+  @deprecated("","")
   def loadUrl(url: String): Unit = js.native
 
   def loadURL(url: String): Unit = js.native
@@ -135,6 +135,8 @@ trait BrowserWindow extends js.Object with EventEmitter {
   // BrowserWindow.showDefinitionForSelection()
 
   def setAutoHideMenuBar(hide: Boolean): Unit = js.native
+
+  def send(channel: String, arg: js.Dynamic*): Unit = js.native
 
   def isMenuBarAutoHide(): Boolean = js.native
 
@@ -152,9 +154,9 @@ object BrowserWindow {
 
   val browserWindow = g.require("browser-window").asInstanceOf[js.Dynamic]
 
-  def apply(width: Int = 800, height: Int = 600, show: Boolean = true): BrowserWindow = {
+  def apply(width: Int = 800, height: Int = 600, show: Boolean = true, icon: String = null): BrowserWindow = {
     js.Dynamic.newInstance(browserWindow)(
-      js.Dynamic.literal(width = width, height = height, show = show)
+      js.Dynamic.literal(width = width, height = height, show = show, icon = icon)
     ).asInstanceOf[BrowserWindow]
   }
 
