@@ -4,12 +4,13 @@ enablePlugins(ScalaJSPlugin)
 
 name := "Scala.js Electron Skeleton"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
-libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.8.2"
-libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.8.0"
+libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.0"
+libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.9.0"
 
 jsDependencies += RuntimeDOM
+jsDependencies += "org.webjars" % "jquery" % "2.2.4" / "2.2.4/jquery.js"
 
 scalacOptions += "-deprecation"
 scalacOptions += "-feature"

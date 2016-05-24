@@ -18,7 +18,7 @@ object Renderer {
   }
 
   def display(filenames: Seq[String]) = {
-    jQuery("body").append("<p>Listing the files in the '.' using io.js API:")
+    jQuery("body").append("<p>Listing the files in the '.' using node.js API:")
     jQuery("body").append("<ul>")
     filenames.foreach { filename =>
       jQuery("body").append(s"<li>$filename</li>")
