@@ -36,3 +36,10 @@ If for some reason, you don't want the `main.js` to come from Scala.js, see the 
 
 ## Renderer process
 The javascript code loaded from within the rendered process (i.e. `index.html`) is implemented in [com.example.electronapp.Renderer.scala](https://github.com/bchazalet/scalajs-electron-skeleton/blob/master/scalajs/src/main/scala/com/example/electronapp/Renderer.scala) and uses the `JSExport` annotation to be callable from javascript and its main method is explicitly called from within `index.html`.
+
+## Copyright
+Copyright © 2016 Boris Chazalet
+
+This work is free. You can redistribute it and/or modify it under the
+terms of the Do What The Fuck You Want To Public License, Version 2,
+as published by Sam Hocevar. See the COPYING file for more details.
