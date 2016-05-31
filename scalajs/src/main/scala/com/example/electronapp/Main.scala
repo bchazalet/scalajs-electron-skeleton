@@ -9,10 +9,8 @@ object Main extends js.JSApp {
 
   def main(): Unit = {
 
-    val app = g.require("app").asInstanceOf[App]  // Module to control application life.
-
-    // Report crashes to our server.
-    g.require("crash-reporter").start();
+    val electron = g.require("electron");
+    val app = electron.app.asInstanceOf[App] // Module to control application life.
 
     // Keep a global reference of the window object, if you don't, the window will
     // be closed automatically when the JavaScript object is GCed.
